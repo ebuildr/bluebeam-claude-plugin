@@ -54,7 +54,7 @@ node bin/bb.mjs auth login --manual   # prints the URL
 node bin/bb.mjs auth code "http://localhost:8765/callback?code=...&state=..."
 ```
 
-Config and tokens live in `~/.config/bluebeam-claude/` (override with `BLUEBEAM_CONFIG_DIR`). Env vars `BLUEBEAM_CLIENT_ID`, `BLUEBEAM_CLIENT_SECRET`, `BLUEBEAM_REGION`, `BLUEBEAM_REDIRECT_URI`, `BLUEBEAM_SCOPES` override the file. Access tokens last 60 minutes and are refreshed automatically; refresh tokens die if unused for 7 days.
+Config and tokens live in `~/.config/bluebeam-claude/` (override with `BLUEBEAM_CONFIG_DIR`). Values set with `/plugin configure bluebeam@ebuildr-plugins` (client ID, secret in secure storage, region, redirect URI) take precedence for the MCP server, then env vars `BLUEBEAM_CLIENT_ID`, `BLUEBEAM_CLIENT_SECRET`, `BLUEBEAM_REGION`, `BLUEBEAM_REDIRECT_URI`, `BLUEBEAM_SCOPES`, then the config file. Access tokens last 60 minutes and are refreshed automatically; refresh tokens die if unused for 7 days.
 
 ## Quick examples
 

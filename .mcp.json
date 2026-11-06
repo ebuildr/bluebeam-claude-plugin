@@ -4,10 +4,10 @@
       "command": "node",
       "args": ["${CLAUDE_PLUGIN_ROOT}/server/mcp.mjs"],
       "env": {
-        "BLUEBEAM_CLIENT_ID": "${user_config.client_id}",
-        "BLUEBEAM_CLIENT_SECRET": "${user_config.client_secret}",
-        "BLUEBEAM_REGION": "${user_config.region}",
-        "BLUEBEAM_REDIRECT_URI": "${user_config.redirect_uri}"
+        "CLAUDE_PLUGIN_OPTION_CLIENT_ID": "${user_config.client_id}",
+        "CLAUDE_PLUGIN_OPTION_CLIENT_SECRET": "${user_config.client_secret}",
+        "CLAUDE_PLUGIN_OPTION_REGION": "${user_config.region}",
+        "CLAUDE_PLUGIN_OPTION_REDIRECT_URI": "${user_config.redirect_uri}"
       }
     }
   }
