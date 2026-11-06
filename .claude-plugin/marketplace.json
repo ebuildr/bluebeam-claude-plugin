@@ -1,0 +1,15 @@
+{
+  "name": "ebuildr-plugins",
+  "owner": {
+    "name": "Eric (ebuildr)",
+    "email": "ebuildr@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "bluebeam",
+      "source": "./",
+      "description": "Bluebeam Studio API: projects, sessions, files, markups, PDF jobs, webhooks, OAuth login."
+    }
+  ],
+  "description": "Plugins by ebuildr: Bluebeam Studio API integration for Claude Code."
+}
