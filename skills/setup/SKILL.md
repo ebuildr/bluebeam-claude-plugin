@@ -41,3 +41,5 @@ The CLI is at `${CLAUDE_PLUGIN_ROOT}/bin/bb.mjs`. Run it as `node "${CLAUDE_PLUG
 - Login works for you but not a colleague: app is in Sandbox; request Production Approval.
 - "Could not listen on http://localhost:8765/callback": port busy. `bb config set redirect_uri=http://localhost:8790/callback`, add the same URI in the portal.
 - Refresh token expired (unused 7+ days): just log in again.
+- Login succeeds but every data call 401/404s, or the portal says your (sandbox) app's data host differs from the OAuth host: set them separately, e.g. `bb config set base_url=https://studioapi.bluebeam.com auth_base_url=https://api.bluebeam.com` (or `bluebeam_configure` with the same keys). Test with `bb whoami` against each host before settling.
+- The MCP server's `/plugin configure` values override `bb config set` values. Keep region and redirect URI empty in `/plugin configure` unless you want them to win.

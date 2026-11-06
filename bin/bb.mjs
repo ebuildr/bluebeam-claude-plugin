@@ -20,7 +20,8 @@ const HELP = `bb — Bluebeam Studio API CLI (zero dependencies)
 
 Setup / auth
   bb config show                              show config (secret masked) and file locations
-  bb config set client_id=... client_secret=... [region=us|de|au|uk|se] [redirect_uri=...] [scopes="full_user jobs offline_access"] [pkce=true|false]
+  bb config set client_id=... client_secret=... [region=us|de|au|uk|se] [redirect_uri=...] [scopes="full_user jobs offline_access"] [base_url=https://...] [auth_base_url=https://...] [pkce=true|false]
+                                              base_url = API host (default from region); auth_base_url = OAuth host if different (default = base_url)
   bb auth login [--manual] [--timeout 300]   OAuth login: prints the URL to open, waits for the localhost callback; --manual = URL only (then: bb auth code)
   bb auth code "<pasted redirect URL or code>"             finish a manual login
   bb auth status | bb auth refresh | bb auth logout
