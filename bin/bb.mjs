@@ -21,7 +21,7 @@ const HELP = `bb — Bluebeam Studio API CLI (zero dependencies)
 Setup / auth
   bb config show                              show config (secret masked) and file locations
   bb config set client_id=... client_secret=... [region=us|de|au|uk|se] [redirect_uri=...] [scopes="full_user jobs offline_access"] [pkce=true|false]
-  bb auth login [--manual] [--no-browser] [--timeout 300]   OAuth login; --manual prints URL only (then: bb auth code)
+  bb auth login [--manual] [--timeout 300]   OAuth login: prints the URL to open, waits for the localhost callback; --manual = URL only (then: bb auth code)
   bb auth code "<pasted redirect URL or code>"             finish a manual login
   bb auth status | bb auth refresh | bb auth logout
   bb whoami                                   GET /publicapi/v1/users/me
@@ -70,7 +70,7 @@ async function main() {
       if (sub === 'url') return out(bb.buildAuthorizeUrl());
       if (sub === 'login') {
         if (flags.manual) { const { url, state, code_verifier } = bb.buildAuthorizeUrl(); bb.savePendingLogin({ state, code_verifier, created: Date.now() }); return out({ open_this_url: url, then: 'After you click Allow Access, the browser lands on your redirect_uri (it may show "can\'t connect"; that is fine). Copy the full URL from the address bar and run:  bb auth code "<that url>"' }); }
-        const r = await bb.login({ openBrowser: !flags['no-browser'], timeoutMs: Number(flags.timeout || 300) * 1000, onUrl: (u) => process.stderr.write(`Open this URL to sign in to Bluebeam:\n${u}\n\nWaiting for the browser callback...\n`) });
+        const r = await bb.login({ timeoutMs: Number(flags.timeout || 300) * 1000, onUrl: (u) => process.stderr.write(`Open this URL in your browser to sign in to Bluebeam:\n${u}\n\nWaiting for the callback on the redirect URI...\n`) });
         return out(r);
       }
       if (sub === 'code') { if (!rest[0]) die('usage: bb auth code "<redirect url or code>"'); return out(await bb.completeLogin(rest[0])); }

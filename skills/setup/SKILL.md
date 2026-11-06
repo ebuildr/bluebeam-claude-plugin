@@ -2,7 +2,6 @@
 name: setup
 description: Configure the Bluebeam plugin - walk the user through the Developer Portal app settings (region, redirect URI, client ID/secret), save them, and complete the OAuth login. Use when the user says "set up bluebeam", "connect bluebeam", "bluebeam login", or any Bluebeam tool reports "not configured" / "Not logged in".
 argument-hint: "[client_id] [client_secret] [region]"
-allowed-tools: Bash(node *) mcp__plugin_bluebeam_bluebeam__*
 ---
 
 # Bluebeam setup
@@ -29,7 +28,7 @@ The CLI is at `${CLAUDE_PLUGIN_ROOT}/bin/bb.mjs`. Run it as `node "${CLAUDE_PLUG
    Never echo the secret back; the status output masks it.
 
 4. **Log in**.
-   - Normal (Claude Code runs on the user's own machine with a browser): call `bluebeam_login` (waits up to 4 minutes) or run `bb auth login`. Show the user the URL in case the browser did not open. The callback completes the login automatically.
+   - Normal (Claude Code runs on the user's own machine): call `bluebeam_login` (waits up to 4 minutes) or run `bb auth login`. Show the user the URL; they open it in their browser. The callback completes the login automatically.
    - Remote / cloud / headless (browser cannot reach localhost on the machine running Claude): call `bluebeam_login` with `wait_seconds: 0` (or `bb auth login --manual`), give the user the URL, and tell them: sign in, click Allow Access, the browser will land on a localhost page that fails to load, copy the entire URL from the address bar and paste it here. Then call `bluebeam_login_complete` with that URL (or `bb auth code "<url>"`). Authorization codes expire after 5 minutes, so do this promptly.
 
 5. **Verify**: `bb whoami` (GET /publicapi/v1/users/me) and `bb sessions list`. Report DisplayName/Email and the count of sessions and projects.

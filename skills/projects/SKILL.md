@@ -2,7 +2,6 @@
 name: projects
 description: Work with Bluebeam Studio Projects - browse folders and files, upload/download, check out/in with revisions, invite users, manage permissions and shared links, and run server-side PDF jobs (flatten, export markups, page count, combine, stamp, convert DWG/Word/Excel to PDF). Use when the user mentions a Studio Project, project files/folders, document control, or batch PDF processing in Bluebeam.
 argument-hint: "[project id or name]"
-allowed-tools: Bash(node *) mcp__plugin_bluebeam_bluebeam__*
 ---
 
 # Studio Projects

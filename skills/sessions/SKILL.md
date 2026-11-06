@@ -2,7 +2,6 @@
 name: sessions
 description: Run Bluebeam Studio Session workflows - create a review session, upload PDFs, invite or add attendees, check attendees and files, snapshot marked-up PDFs, finalize/close and download results, or link Project files into a Session. Use when the user mentions a Studio Session, session ID (123-456-789), inviting reviewers, or getting marked-up drawings back.
 argument-hint: "[session id or name]"
-allowed-tools: Bash(node *) mcp__plugin_bluebeam_bluebeam__*
 ---
 
 # Studio Sessions

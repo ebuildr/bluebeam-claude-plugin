@@ -2,7 +2,6 @@
 name: markups
 description: Pull, summarize, export and update Bluebeam Studio Session markups (annotations) - list markups on a session file, export to CSV/JSON, group by author/subject/status/page, set markup status (accept/reject/review), or export markups from Project PDFs via jobs. Use when the user asks about comments, redlines, punch items, markup lists, markup summaries, or review status in Bluebeam.
 argument-hint: "<session id> <file id>"
-allowed-tools: Bash(node *) mcp__plugin_bluebeam_bluebeam__*
 ---
 
 # Markups
