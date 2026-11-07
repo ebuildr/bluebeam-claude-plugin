@@ -1,7 +1,7 @@
 {
   "name": "bluebeam",
   "displayName": "Bluebeam Studio",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Work with Bluebeam Studio (Projects, Sessions, files, markups, PDF jobs, webhooks) from Claude Code via the official Bluebeam Studio REST API with OAuth 2.0. Includes a zero-dependency MCP server, a `bb` CLI, a guided /bluebeam:setup, and the full endpoint reference.",
   "author": {
     "name": "Eric (ebuildr)",
